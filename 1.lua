@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("网址"))();
+loadstring(game:HttpGet("https://raw.githubusercontent.com/renlua/lua/main/renscript.lua"))();
