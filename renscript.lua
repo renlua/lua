@@ -1214,10 +1214,7 @@ local myTitle = "忍脚本协议条款"
 CreateGUI(myTitle)
 end
 
-
-
-
-if R1==[[ ________________    ]] and R2==[[/    ↓保护涵数↓       \   ]] and R3==[[|    脚本名:忍脚本        |   ]] and R4==[[|   群号:139341298     |   ]] and R5==[[| 使用脚本封号不负责 |   ]] and R6==[[|        请勿抄袭            |   ]] and R7==[[| ________________ |   ]]then
+if R0==[[ ________________    ]] and R1==[[/    ↓保护涵数↓       \   ]] and R2==[[|    脚本名:忍脚本        |   ]] and R3==[[|   群号:139341298     |   ]] and R4==[[| 使用脚本封号不负责 |   ]] and R5==[[|        请勿抄袭            |   ]] and R6==[[| ________________ |   ]]then
 		local NotificationBindable = Instance.new("BindableFunction")
 		NotificationBindable.OnInvoke = function(text)
 		if text == "确定" then
