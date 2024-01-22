@@ -1,248 +1,50 @@
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-notify = function(...)
-    local GUI = game:GetService("CoreGui"):FindFirstChild("STX_Nofitication")
-    if not GUI then
-        local STX_Nofitication = Instance.new("ScreenGui")
-        local STX_NofiticationUIListLayout = Instance.new("UIListLayout")
-        STX_Nofitication.Name = "STX_Nofitication"
-        STX_Nofitication.Parent = game.CoreGui
-        STX_Nofitication.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-        STX_Nofitication.ResetOnSpawn = false
+local REN = {}
+local REN ={
+    ["游戏名"] = tostring(game.Players.LocalPlayer.Character);
+  
+  
+  
+  
+  
+    ["白名单"] = {
+        ["开发者白名单"] = {
+            ["状态"] = false;
+            ["用户名"] = {
+                "123fa98",
+                "cmhehebeb",
+            };
+        };
+        ["普通白名单"] = {
+           ["状态"] = false;
+           ["用户名"] = {
+                "vhsejan",
+           };
+        };
+    };
+};
 
-        STX_NofiticationUIListLayout.Name = "STX_NofiticationUIListLayout"
-        STX_NofiticationUIListLayout.Parent = STX_Nofitication
-        STX_NofiticationUIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
-        STX_NofiticationUIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-        STX_NofiticationUIListLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+table.foreach(REN["白名单"]["开发者白名单"]["用户名"],function(i,name)
+    if name == REN["游戏名"] then
+        REN["白名单"]["开发者白名单"]["状态"] = true
     end
-    local Args = {...}
-    local Nofitication = {}
-    local GUI = game:GetService("CoreGui"):FindFirstChild("STX_Nofitication")
-    function Nofitication:Notify(nofdebug, middledebug, all)
-        local SelectedType = string.lower(tostring(middledebug.Type))
-        local ambientShadow = Instance.new("ImageLabel")
-        local Window = Instance.new("Frame")
-        local Outline_A = Instance.new("Frame")
-        local WindowTitle = Instance.new("TextLabel")
-        local WindowDescription = Instance.new("TextLabel")
+end)
 
-        ambientShadow.Name = "ambientShadow"
-        ambientShadow.Parent = GUI
-        ambientShadow.AnchorPoint = Vector2.new(0.5, 0.5)
-        ambientShadow.BackgroundTransparency = 1.000
-        ambientShadow.BorderSizePixel = 0
-        ambientShadow.Position = UDim2.new(0.91525954, 0, 0.936809778, 0)
-        ambientShadow.Size = UDim2.new(0, 0, 0, 0)
-        ambientShadow.Image = "rbxassetid://1316045217"
-        ambientShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
-        ambientShadow.ImageTransparency = 0.400
-        ambientShadow.ScaleType = Enum.ScaleType.Slice
-        ambientShadow.SliceCenter = Rect.new(10, 10, 118, 118)
-
-        Window.Name = "Window"
-        Window.Parent = ambientShadow
-        Window.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-        Window.BorderSizePixel = 0
-        Window.Position = UDim2.new(0, 5, 0, 5)
-        Window.Size = UDim2.new(0, 230, 0, 80)
-        Window.ZIndex = 2
-
-        Outline_A.Name = "Outline_A"
-        Outline_A.Parent = Window
-        Outline_A.BackgroundColor3 = middledebug.OutlineColor
-        Outline_A.BorderSizePixel = 0
-        Outline_A.Position = UDim2.new(0, 0, 0, 25)
-        Outline_A.Size = UDim2.new(0, 230, 0, 2)
-        Outline_A.ZIndex = 5
-
-        WindowTitle.Name = "WindowTitle"
-        WindowTitle.Parent = Window
-        WindowTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        WindowTitle.BackgroundTransparency = 1.000
-        WindowTitle.BorderColor3 = Color3.fromRGB(27, 42, 53)
-        WindowTitle.BorderSizePixel = 0
-        WindowTitle.Position = UDim2.new(0, 8, 0, 2)
-        WindowTitle.Size = UDim2.new(0, 222, 0, 22)
-        WindowTitle.ZIndex = 4
-        WindowTitle.Font = Enum.Font.GothamSemibold
-        WindowTitle.Text = nofdebug.Title
-        WindowTitle.TextColor3 = Color3.fromRGB(220, 220, 220)
-        WindowTitle.TextSize = 12.000
-        WindowTitle.TextXAlignment = Enum.TextXAlignment.Left
-
-        WindowDescription.Name = "WindowDescription"
-        WindowDescription.Parent = Window
-        WindowDescription.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        WindowDescription.BackgroundTransparency = 1.000
-        WindowDescription.BorderColor3 = Color3.fromRGB(27, 42, 53)
-        WindowDescription.BorderSizePixel = 0
-        WindowDescription.Position = UDim2.new(0, 8, 0, 34)
-        WindowDescription.Size = UDim2.new(0, 216, 0, 40)
-        WindowDescription.ZIndex = 4
-        WindowDescription.Font = Enum.Font.GothamSemibold
-        WindowDescription.Text = nofdebug.Description
-        WindowDescription.TextColor3 = Color3.fromRGB(180, 180, 180)
-        WindowDescription.TextSize = 12.000
-        WindowDescription.TextWrapped = true
-        WindowDescription.TextXAlignment = Enum.TextXAlignment.Left
-        WindowDescription.TextYAlignment = Enum.TextYAlignment.Top
-
-        if SelectedType == "default" then
-            local function ORBHB_fake_script()
-                local script = Instance.new("LocalScript", ambientShadow)
-
-                ambientShadow:TweenSize(UDim2.new(0, 240, 0, 90), "Out", "Linear", 0.2)
-                Window.Size = UDim2.new(0, 230, 0, 80)
-                Outline_A:TweenSize(UDim2.new(0, 0, 0, 2), "Out", "Linear", middledebug.Time)
-
-                wait(middledebug.Time)
-
-                ambientShadow:TweenSize(UDim2.new(0, 0, 0, 0), "Out", "Linear", 0.2)
-
-                wait(0.2)
-                ambientShadow:Destroy()
-            end
-            coroutine.wrap(ORBHB_fake_script)()
-        elseif SelectedType == "image" then
-            ambientShadow:TweenSize(UDim2.new(0, 240, 0, 90), "Out", "Linear", 0.2)
-            Window.Size = UDim2.new(0, 230, 0, 80)
-            WindowTitle.Position = UDim2.new(0, 24, 0, 2)
-            local ImageButton = Instance.new("ImageButton")
-            ImageButton.Parent = Window
-            ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            ImageButton.BackgroundTransparency = 1.000
-            ImageButton.BorderSizePixel = 0
-            ImageButton.Position = UDim2.new(0, 4, 0, 4)
-            ImageButton.Size = UDim2.new(0, 18, 0, 18)
-            ImageButton.ZIndex = 5
-            ImageButton.AutoButtonColor = false
-            ImageButton.Image = all.Image
-            ImageButton.ImageColor3 = all.ImageColor
-
-            local function ORBHB_fake_script()
-                local script = Instance.new("LocalScript", ambientShadow)
-
-                Outline_A:TweenSize(UDim2.new(0, 0, 0, 2), "Out", "Linear", middledebug.Time)
-
-                wait(middledebug.Time)
-
-                ambientShadow:TweenSize(UDim2.new(0, 0, 0, 0), "Out", "Linear", 0.2)
-
-                wait(0.2)
-                ambientShadow:Destroy()
-            end
-            coroutine.wrap(ORBHB_fake_script)()
-        elseif SelectedType == "option" then
-            ambientShadow:TweenSize(UDim2.new(0, 240, 0, 110), "Out", "Linear", 0.2)
-            Window.Size = UDim2.new(0, 230, 0, 100)
-            local Uncheck = Instance.new("ImageButton")
-            local Check = Instance.new("ImageButton")
-
-            Uncheck.Name = "Uncheck"
-            Uncheck.Parent = Window
-            Uncheck.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            Uncheck.BackgroundTransparency = 1.000
-            Uncheck.BorderSizePixel = 0
-            Uncheck.Position = UDim2.new(0, 7, 0, 76)
-            Uncheck.Size = UDim2.new(0, 18, 0, 18)
-            Uncheck.ZIndex = 5
-            Uncheck.AutoButtonColor = false
-            Uncheck.Image = "http://www.roblox.com/asset/?id=6031094678"
-            Uncheck.ImageColor3 = Color3.fromRGB(255, 84, 84)
-
-            Check.Name = "Check"
-            Check.Parent = Window
-            Check.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            Check.BackgroundTransparency = 1.000
-            Check.BorderSizePixel = 0
-            Check.Position = UDim2.new(0, 28, 0, 76)
-            Check.Size = UDim2.new(0, 18, 0, 18)
-            Check.ZIndex = 5
-            Check.AutoButtonColor = false
-            Check.Image = "http://www.roblox.com/asset/?id=6031094667"
-            Check.ImageColor3 = Color3.fromRGB(83, 230, 50)
-
-            local function ORBHB_fake_script()
-                local script = Instance.new("LocalScript", ambientShadow)
-
-                local Stilthere = true
-                local function Unchecked()
-                    pcall(function()
-                        all.Callback(false)
-                    end)
-                    ambientShadow:TweenSize(UDim2.new(0, 0, 0, 0), "Out", "Linear", 0.2)
-
-                    wait(0.2)
-                    ambientShadow:Destroy()
-                    Stilthere = false
-                end
-                local function Checked()
-                    pcall(function()
-                        all.Callback(true)
-                    end)
-                    ambientShadow:TweenSize(UDim2.new(0, 0, 0, 0), "Out", "Linear", 0.2)
-
-                    wait(0.2)
-                    ambientShadow:Destroy()
-                    Stilthere = false
-                end
-                Uncheck.MouseButton1Click:Connect(Unchecked)
-                Check.MouseButton1Click:Connect(Checked)
-
-                Outline_A:TweenSize(UDim2.new(0, 0, 0, 2), "Out", "Linear", middledebug.Time)
-
-                wait(middledebug.Time)
-
-                if Stilthere == true then
-                    ambientShadow:TweenSize(UDim2.new(0, 0, 0, 0), "Out", "Linear", 0.2)
-
-                    wait(0.2)
-                    ambientShadow:Destroy()
-                end
-            end
-            coroutine.wrap(ORBHB_fake_script)()
-        end
+table.foreach(REN["白名单"]["普通白名单"]["用户名"],function(i,name)
+    if name == REN["游戏名"] then
+        REN["白名单"]["普通白名单"]["状态"] = true
     end
-    Nofitication:Notify({
-        Title = Args[1],
-        Description = Args[2]
-    }, {
-        OutlineColor = Color3.fromRGB(80, 80, 80),
-        Time = Args[3],
-        Type = "image"
-    }, {
-        Image = "http://www.roblox.com/asset/?id=6023426923",
-        ImageColor = Color3.fromRGB(255, 84, 84)
-    })
-end
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+end)
 
---           notify指的意思是提示，使用方法↓↓↓
---           notify("标题","内容",时间)
---           fang指的意思是防封
---           
---
---
---  
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-function key()
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				local vu = game:GetService("VirtualUser")
 
-		game:GetService("Players").LocalPlayer.Idled:connect(function()
 
-		   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 
-		   wait(1)
 
-		   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-
-		end)
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+function scripts()							
 loadstring(game:HttpGet("https://pastebin.com/raw/6xQ5gtbj"))();
 local ui = loadstring(game:HttpGet"https://pastebin.com/raw/cApeA3dS")()
 local win = ui:new("忍脚本")
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--
 local UITab1 = win:Tab("公告&关于",'6035145364')
 --
 local Player1 = win:Tab("基础功能",'6035145364')
@@ -265,6 +67,8 @@ local FM1 = win:Tab("伐木大亨2",'6035145364')
 --
 local RC1 = win:Tab("rc",'6035145364')
 --
+local BZMNQ1 = win:Tab("巴掌模拟器",'6035145364')
+--
 local CJ1 = win:Tab("超级大力士模拟器",'6035145364')
 --
 local Tab1 = win:Tab("脚本中心",'6035145364')
@@ -275,7 +79,7 @@ local CS1 = win:Tab("测试功能",'6035145364')
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local gy = UITab1:section("信息",true)
 local UITab = UITab1:section("公告",true)
-local UITab2 = UITab1:section("关于",false)
+local UITab2 = UITab1:section("关于",true)
 --
 local Player = Player1:section("基础功能",true)
 --
@@ -294,35 +98,36 @@ local JS = JS1:section("极速传奇",true)
 local RZCQ = RZCQ1:section("忍者传奇",false)
 local RZCQCS = RZCQ1:section("传送",false)
 --
-local li666 = li1:section("力量传奇",true)
-local li = li1:section("传送",true)
+local li666 = li1:section("力量传奇",false)
+local li = li1:section("传送",false)
 --
-local FM = FM1:section("伐木大亨2",true)
+local FM = FM1:section("伐木大亨2",false)
 local FMCS = FM1:section("传送",false)
 --
-local RC = RC1:section("rc",false)
+local RC = RC1:section("rc",true)
 --
-local CJ = CJ1:section("超级大力士模拟器",false)
+local BZMNQ = BZMNQ1:section("主要",true)
+local BZMNQZX = BZMNQ1:section("杂项",true)
+local BZMNQFJN = BZMNQ1:section("防技能",true)
 --
-local Tab = Tab1:section("脚本中心",false)
+local CJ = CJ1:section("超级大力士模拟器",true)
 --
-local music = music1:section("音乐",false)
+local Tab = Tab1:section("脚本中心",true)
 --
-local CS = CS1:section("测试",false)
+local music = music1:section("音乐",true)
+--
+local CS = CS1:section("测试",true)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-gy:Label("您的注入器:"..identifyexecutor(), function()
-end)
+gy:Label("您的注入器:"..identifyexecutor())
 
-gy:Label("您当前服务器的ID:"..game.GameId, function()
-end)
+gy:Label("您当前服务器的ID:"..game.GameId)
 
 UITab:Button("官方交流群：139341298(点击后自动复制)", function()
 setclipboard("139341298")
 end)
 
-UITab:Label("忍脚本与清风脚本和并", function()
-end)
+UITab:Label("忍脚本和清风脚本和静新脚本合并")
 
 
 UITab2:Button("作者QQ：2207654215", function()
@@ -332,17 +137,51 @@ end)
 UITab2:Button("作者QQ：397510573", function()
 setclipboard("397510573")
 end)
+
+UITab2:Button("作者QQ：2909431794", function()
+setclipboard("2909431794")
+end)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+local bai={
+  playernamedied=nil,
+  dropdown=nil,
+  
+}
+local lp=game.Players.LocalPlayer
+function tp(p)
+   lp.Character:PivotTo(p)
+end
+function shuaxinlb(zji)
+    bai.dropdown={}
+    if zji==true then
+    for p, I in next,game.Players:GetChildren() do
+    table.insert(bai.dropdown, I.Name)
+    end
+    else
+    for p, I in next, game.Players:GetChildren() do
+    if I ~= lp then
+    table.insert(bai.dropdown, I.Name)
+    end
+    end
+    end
+    end
+    shuaxinlb(true)
+
+local dropdown = Player:Dropdown("选择玩家名称",'Dropdown',bai.dropdown,function(v)
+    bai.playernamedied = v
+end)
+
+Player:Button("刷新列表", function()
+	shuaxinlb(true)
+	dropdown:SetOptions(bai.dropdown)
+end)
+
+Player:Button("传送到玩家旁边",function()  
+            tp(game:GetService("Players")[bai.playernamedied].Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0))
+end)
+
 Player:Button("飞行", function()
   loadstring(game:HttpGet('https://pastebin.com/raw/28CWNSrK'))();
-end)
-
-Player:Button("阿尔宙斯飞行", function()
-  loadstring(game:HttpGet('https://pastebin.com/raw/jQTcRnqz'))();
-end)
-
-Player:Button("点击传送工具", function()
-    mouse = game.Players.LocalPlayer:GetMouse() tool = Instance.new("Tool") tool.RequiresHandle = false tool.Name = "点击传送" tool.Activated:connect(function() local pos = mouse.Hit+Vector3.new(0,2.5,0) pos = CFrame.new(pos.X,pos.Y,pos.Z) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos end) tool.Parent = game.Players.LocalPlayer.Backpack
 end)
 
 Player:Slider('设置速度', 'Sliderflag', 16, 16, 900,false, function(Value)
@@ -680,6 +519,389 @@ RC:Button("白脚本rc[免费](已修复)", function()
      loadstring(game:HttpGet("https://raw.githubusercontent.com/noob616161/KphoooOooooOoOo-wprfbdksorbfKvsdcIUH-194jddJ-___-_-lIlIIIllIIIlllIIIIlIlIIlIllIIIllllllIllllllIIIl/main/bai/rc"))();
 end)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------      
+
+
+BZMNQ:Button("获取计数器手套", function()
+fireclickdetector(game.Workspace.CounterLever.ClickDetector)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,100,0)
+wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+wait(121)
+for i,v in pairs(workspace.Maze:GetDescendants()) do
+if v:IsA("ClickDetector") then
+fireclickdetector(v)
+end
+end
+end)
+
+BZMNQ:Toggle("地牢亮度","Toggle" ,false, function(Value)
+ Light = Value
+    if not Light then
+        game.Lighting.Ambient = Color3.new(0, 0, 0)
+    end
+end)
+
+BZMNQ:Dropdown("传送","Dropdown",{"安全区","竞技场","埃及岛","果实岛","盘子","锦标赛","默认竞技场"},function(Value)
+if Value == "安全区" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,40,0)
+elseif Value == "竞技场" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Origo.CFrame * CFrame.new(0,-5,0)
+elseif Value == "埃及岛" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(215, -15.5, 0.5)
+elseif Value == "果实岛" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.island5.Union.CFrame * CFrame.new(0,3.25,0)
+elseif Value == "盘子" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.Plate.CFrame * CFrame.new(0,2,0)
+elseif Value == "锦标赛" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Battlearena.Arena.CFrame * CFrame.new(0,10,0)
+elseif Value == "默认竞技场" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(120,360,-3)
+end
+end)
+
+BZMNQ:Toggle("复古技能","Toggle" ,false, function(Value)
+RetroSpam = Value
+while RetroSpam do
+game:GetService("ReplicatedStorage").RetroAbility:FireServer(RetroAbility)
+task.wait()
+end
+end)
+
+BZMNQ:Dropdown("复古技能选择","Dropdown",{"Rocket Launcher","Ban Hammer","Bomb"}, function(Value)
+RetroAbility = Value
+end)
+
+BZMNQ:Toggle("自动捡糖果","Toggle",false, function(Value)
+CandyCornFarm = Value
+while CandyCornFarm do
+for i, v in pairs(workspace.CandyCorns:GetChildren()) do
+                if v:FindFirstChildWhichIsA("TouchTransmitter") then
+v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                end
+            end
+task.wait()
+end
+end)
+
+BZMNQ:Toggle("获取炼金术师材料","Toggle", false, function(Value)
+AlchemistIngredients = Value
+if game.Players.LocalPlayer.leaderstats.Glove.Value == "Alchemist" then
+while AlchemistIngredients do
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Mushroom")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Glowing Mushroom")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Fire Flower")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Winter Rose")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Dark Root")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Dire Flower")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Autumn Sprout")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Elder Wood")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Hazel Lily")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Wild Vine")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Jade Stone")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Lamp Grass")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Plane Flower")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Blood Rose")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Red Crystal")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Blue Crystal")
+task.wait()
+end
+end
+end)
+
+BZMNQ:Toggle("自动加入竞技场","Toggle", false, function(Value)
+AutoEnterArena = Value
+while AutoEnterArena do
+if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 1)
+    end
+task.wait()
+end
+end)
+
+BZMNQ:Toggle("自动光波球","Toggle", false, function(Value)
+if Person == nil then
+Person = game.Players.LocalPlayer.Name
+end
+_G.RojoSpam = Value
+while _G.RojoSpam do
+game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {game.Players[Person].Character.HumanoidRootPart.CFrame})
+task.wait()
+end
+end)
+
+BZMNQ:Button("Rojo技能", function(Value)
+_G.RojoSpam = Value
+game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Charge")
+wait(6)
+game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame})
+task.wait()
+end)
+
+BZMNQ:Toggle("音符技能","Toggle", false, function(Value)
+_G.RhythmSpam = Value
+while _G.RhythmSpam do
+game:GetService("ReplicatedStorage").rhythmevent:FireServer("AoeExplosion",0)
+task.wait()
+end
+end)
+
+BZMNQ:Toggle("Null技能","Toggle", false, function(Value)
+NullSpam = Value
+while NullSpam do
+game:GetService("ReplicatedStorage").NullAbility:FireServer()
+task.wait()
+end
+end)
+
+BZMNQZX:Toggle("自动拾取黄金果实","Toggle", false, function(Value)
+SlappleFarm = Value
+while SlappleFarm do
+for i, v in ipairs(workspace.Arena.island5.Slapples:GetDescendants()) do
+                if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and game.Players.LocalPlayer.Character:FindFirstChild("entered") and v.Name == "Glove" and v:FindFirstChildWhichIsA("TouchTransmitter") then
+                    firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0)
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1)
+                end
+            end
+task.wait()
+end
+end)
+
+BZMNQZX:Toggle("自动捡飞行宝珠","Toggle", false, function(Value)
+Jetfarm = Value
+while Jetfarm do
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.Name == "JetOrb" and v:FindFirstChild("TouchInterest") then
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), v, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), v, 1)
+                    end
+                end
+task.wait()
+end
+end)
+
+BZMNQZX:Toggle("自动捡相位球","Toggle", false, function(Value)
+Phasefarm = Value
+while Phasefarm do
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.Name == "PhaseOrb" and v:FindFirstChild("TouchInterest") then
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), v, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), v, 1)
+                    end
+                end
+task.wait()
+end
+end)
+
+BZMNQZX:Toggle("自动刷bob","Toggle", false, function(Value)
+ReplicaFarm = Value
+while ReplicaFarm do
+for i, v in pairs(workspace:GetChildren()) do
+                if v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("HumanoidRootPart") then
+game.ReplicatedStorage.b:FireServer(v:WaitForChild("HumanoidRootPart"))
+                end
+            end
+task.wait()
+game:GetService("ReplicatedStorage").Duplicate:FireServer()
+task.wait(7)
+end
+end)
+
+BZMNQZX:Toggle("无限反转","Toggle", false, function(Value)
+_G.InfReverse = Value
+while _G.InfReverse do
+game:GetService("ReplicatedStorage").ReverseAbility:FireServer()
+wait(6)
+end
+end)
+
+BZMNQZX:Toggle("彩虹角色(装备黄金手套)","Toggle", false, function(Value)
+_G.Rainbow = Value
+while _G.Rainbow do
+for i = 0,1,0.001*25 do
+game:GetService("ReplicatedStorage").Goldify:FireServer(false, BrickColor.new(Color3.fromHSV(i,1,1)))
+task.wait()
+end
+end
+end)
+
+
+BZMNQFJN:Toggle("管理员预警(反管理员)","Toggle", false, function(Value)
+AntiAdmins = Value
+while AntiAdmins do
+for i,v in pairs(game.Players:GetChildren()) do
+                    if v:GetRankInGroup(9950771) >= 2 then
+AntiKick = false
+                        game.Players.LocalPlayer:Kick("High Rank Player Detected.".." ("..v.Name..")")
+                        break
+                    end
+                end
+task.wait()
+end
+end)
+
+BZMNQFJN:Toggle("防踢","Toggle", false, function(Value)
+AntiKick = Value
+while AntiKick do
+for i,v in pairs(game.CoreGui.RobloxPromptGui.promptOverlay:GetDescendants()) do
+                    if v.Name == "ErrorPrompt" then
+AK:Set(false)
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+                    end
+                end
+task.wait()
+end
+end)
+
+BZMNQFJN:Toggle("防击飞","Toggle", false, function(Value)
+AntiRagdoll = Value
+if AntiRagdoll then
+game.Players.LocalPlayer.Character.Humanoid.Health = 0
+game.Players.LocalPlayer.CharacterAdded:Connect(function()
+game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Changed:Connect(function()
+if game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == true and AntiRagdoll then
+repeat task.wait() game.Players.LocalPlayer.Character.Torso.Anchored = true
+until game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == false
+game.Players.LocalPlayer.Character.Torso.Anchored = false
+end
+end)
+end)
+end
+end)
+
+BZMNQFJN:Toggle("反虚空(锦标赛也有效果)","Toggle", false, function(Value)
+game.Workspace.dedBarrier.CanCollide = Value
+game.Workspace.TAntiVoid.CanCollide = Value
+end)
+
+BZMNQFJN:Toggle("防死亡屏障","Toggle", false, function(Value)
+if Value == true then
+for i,v in pairs(game.Workspace.DEATHBARRIER:GetChildren()) do
+                    if v.ClassName == "Part" and v.Name == "BLOCK" then
+                        v.CanTouch = false
+                    end
+                end
+workspace.DEATHBARRIER.CanTouch = false
+workspace.DEATHBARRIER2.CanTouch = false
+workspace.dedBarrier.CanTouch = false
+workspace.ArenaBarrier.CanTouch = false
+workspace.AntiDefaultArena.CanTouch = false
+else
+for i,v in pairs(game.Workspace.DEATHBARRIER:GetChildren()) do
+                    if v.ClassName == "Part" and v.Name == "BLOCK" then
+                        v.CanTouch = true
+                    end
+                end
+workspace.DEATHBARRIER.CanTouch = true
+workspace.DEATHBARRIER2.CanTouch = true
+workspace.dedBarrier.CanTouch = true
+workspace.ArenaBarrier.CanTouch = true
+workspace.AntiDefaultArena.CanTouch = true
+end
+end)
+
+BZMNQFJN:Toggle("反巴西","Toggle", false, function(Value)
+if Value == true then
+for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
+                        v.CanTouch = false
+                end
+else
+for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
+                        v.CanTouch = true
+                end
+end
+end)
+
+BZMNQFJN:Toggle("反死亡方块","Toggle", false, function(Value)
+if Value == true then
+        workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"].CanTouch = false
+        else
+                workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"].CanTouch = true
+        end
+end)
+
+BZMNQFJN:Toggle("反上帝技能","Toggle", false, function(Value)
+AntiTimestop = Value
+while AntiTimestop do
+                for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v.ClassName == "Part" then
+                        v.Anchored = false
+                    end
+                end
+task.wait()
+end
+end)
+
+BZMNQFJN:Toggle("反鱿鱼","Toggle", false, function(Value)
+AntiSquid = Value
+if AntiSquid == false then
+        game.Players.LocalPlayer.PlayerGui.SquidInk.Enabled = true
+        end
+while AntiSquid do
+if game.Players.LocalPlayer.PlayerGui:FindFirstChild("SquidInk") then
+        game.Players.LocalPlayer.PlayerGui.SquidInk.Enabled = false
+end
+task.wait()
+end
+end)
+
+BZMNQFJN:Toggle("反神圣杰克","Toggle", false, function(Value)
+game.Players.LocalPlayer.PlayerScripts.HallowJackAbilities.Disabled = Value
+end)
+
+BZMNQFJN:Toggle("反传送带","Toggle", false, function(Value)
+game.Players.LocalPlayer.PlayerScripts.ConveyorVictimized.Disabled = Value
+end)
+
+BZMNQFJN:Toggle("反板砖","Toggle", false, function(Value)
+AntiBrick = Value
+while AntiBrick do
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.Name == "Union" then
+                        v.CanTouch = false
+                    end
+                end
+task.wait()
+end
+end)
+
+BZMNQFJN:Toggle("反Null","Toggle", false, function(Value)
+AntiNull = Value
+while AntiNull do
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.Name == "Imp" and v:FindFirstChild("Body") then
+shared.gloveHits[game.Players.LocalPlayer.leaderstats.Glove.Value]:FireServer(v.Body,true)
+end
+end
+task.wait()
+end
+end)
+
+
+game.RunService.Stepped:Connect(function()
+ if Light then
+        game.Lighting.Ambient = Color3.new(1, 1, 1)
+    end
+if workspace:FindFirstChild("Spot") == nil then
+local SafeSpot = Instance.new("Part", workspace)
+SafeSpot.Position = Vector3.new(math.random(-25000,-2500),100,math.random(-25000,-2500))
+SafeSpot.Name = "Spot"
+SafeSpot.Size = Vector3.new(500,50,500)
+SafeSpot.Anchored = true
+SafeSpot.Transparency = .5
+end
+if workspace:FindFirstChild("TAntiVoid") == nil then
+local TournamentAntiVoid = Instance.new("Part", workspace)
+TournamentAntiVoid.Name = "TAntiVoid"
+TournamentAntiVoid.Size = Vector3.new(2048, 15, 2048)
+TournamentAntiVoid.Position = Vector3.new(3420, 70, 3)
+TournamentAntiVoid.CanCollide = false
+TournamentAntiVoid.Transparency = 1
+TournamentAntiVoid.Anchored = true
+end
+end)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------      
 CJ:Button("传送到开始区域", function()
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(85.86943817138672, 11.751949310302734, -198.07127380371094)
 end)
@@ -851,387 +1073,21 @@ end)
 CS:Button("超广角", function()
 Workspace.CurrentCamera.FieldOfView = 9999999
 end)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 end
-------------------------------------------------------------------------------------------------------------------------*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-function script()
-local UserInputService = game:GetService("UserInputService")
 
-local function CreateGUI(title)
-    local gui = Instance.new("ScreenGui")
-    gui.Name = "MyGUI"
-    gui.ResetOnSpawn = false
-    gui.DisplayOrder = 10
-    gui.Parent = game.Players.LocalPlayer.PlayerGui
-    local frame = Instance.new("Frame")
-    frame.Name = "MainFrame"
-    frame.BackgroundTransparency = 0
-    frame.BackgroundColor3 = Color3.fromRGB(240, 248, 255)
-    frame.BorderSizePixel = 0
-    frame.Position = UDim2.new(0, 110, 0, 30) 
-    frame.Size = UDim2.new(0, 500, 0, 280)
-    frame.Parent = gui
-
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 10)
-    corner.Parent = frame
-
-    local dragging = false
-    local startPos, startOffset
-
-    frame.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-            dragging = true
-            startPos = input.Position
-                    startOffset = frame.Position
-            gui.Active = true 
+if REN["白名单"]["开发者白名单"]["状态"] == true then
+        scripts()
+    else
+        if R0==[[ ________________    ]] and R1==[[/    ↓保护涵数↓       \   ]] and R2==[[|    脚本名:忍脚本        |   ]] and R3==[[|   群号:139341298     |   ]] and R4==[[| 使用脚本封号不负责 |   ]] and R5==[[|        请勿抄袭            |   ]] and R6==[[| ________________ |   ]] then
+            else
+                game.Players.LocalPlayer:Kick("请勿删除保护涵数")
         end
-    end)
-
-    frame.InputEnded:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-            dragging = false
-            startPos = nil
-            startOffset = nil
-            gui.Active = false
-        end
-    end)
-
-    UserInputService.InputChanged:Connect(function(input)
-        if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
-            local delta = input.Position - startPos
-            frame.Position = UDim2.new(startOffset.X.Scale, startOffset.X.Offset + delta.X, startOffset.Y.Scale,  
-                startOffset.Y.Offset + delta.Y)
-        end
-    end)
-    local titleLabel = Instance.new("TextLabel")
-    titleLabel.Name = "TitleLabel"
-    titleLabel.Size = UDim2.new(1, 0, 0.05, 0.15 * frame.Size.Y.Offset)
-    titleLabel.Position = UDim2.new(0, 0, 0.01, 0)
-    titleLabel.BackgroundTransparency = 1
-    titleLabel.Text = title
-    titleLabel.TextColor3 = Color3.new(0, 0, 0)
-    titleLabel.TextSize = math.floor(frame.Size.Y.Offset * 0.1)
-    titleLabel.Parent = frame
-    local disagreeButton = Instance.new("TextButton")
-    disagreeButton.Name = "DisagreeButton"
-    disagreeButton.Size = UDim2.new(0, 0.4 * frame.Size.X.Offset, 0, 0.15 * frame.Size.Y.Offset)
-    disagreeButton.Position = UDim2.new(0, 0.1 * frame.Size.X.Offset, 0,
-        frame.Size.Y.Offset - 0.25 * frame.Size.Y.Offset)
-    disagreeButton.BackgroundTransparency = 0
-    disagreeButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    disagreeButton.Text = "不同意"
-    disagreeButton.TextColor3 = Color3.new(255, 0, 0)
-    disagreeButton.TextSize = math.floor(frame.Size.Y.Offset * 0.08)
-    disagreeButton.Font = Enum.Font.SourceSans
-    disagreeButton.Parent = frame
-    local disagreeCorner = Instance.new("UICorner")
-    disagreeCorner.CornerRadius = UDim.new(0, 10)
-    disagreeCorner.Parent = disagreeButton
-
-    local agreeButton = Instance.new("TextButton")
-    agreeButton.Name = "AgreeButton"
-    agreeButton.Size = UDim2.new(0, 0.4 * frame.Size.X.Offset, 0, 0.15 * frame.Size.Y.Offset)
-    agreeButton.Position = UDim2.new(0, frame.Size.X.Offset - 0.5 * frame.Size.X.Offset, 0,
-        frame.Size.Y.Offset - 0.25 * frame.Size.Y.Offset)
-    agreeButton.BackgroundTransparency = 0
-    agreeButton.BackgroundColor3 = Color3.fromRGB(106, 159, 255)
-    agreeButton.Text = "同意"
-    agreeButton.TextColor3 = Color3.new(255, 255, 255)
-    agreeButton.TextSize = math.floor(frame.Size.Y.Offset * 0.08)
-    agreeButton.Font = Enum.Font.SourceSans 
-    agreeButton.Parent = frame
-
-    
-    local agreeFrame = Instance.new("TextLabel")
-    agreeFrame.Size = UDim2.new(0.8, 0, 0.5, 0)
-    agreeFrame.Position = UDim2.new(0.1, 0, 0.22, 0)
-    agreeFrame.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
-    agreeFrame.Text = "1.脚本有时候免费\n2.脚本现在收费二元\n3.使用此脚本封号了不负责"
-    agreeFrame.TextWrapped = true
-
-    
-    agreeFrame.TextSize = 16  
-
-
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 10)
-    corner.Parent = agreeFrame
-
-    agreeFrame.Parent = frame
-
-    local agreeCorner = Instance.new("UICorner")
-    agreeCorner.CornerRadius = UDim.new(0, 10)
-    agreeCorner.Parent = agreeButton
-    local minimizeButton = Instance.new("TextButton")
-    minimizeButton.Name = "MinimizeButton"
-    minimizeButton.Size = UDim2.new(0, 40, 0, 40)
-    minimizeButton.Position = UDim2.new(1, -65, 0, 10)
-    minimizeButton.BackgroundTransparency = 0
-    minimizeButton.BackgroundColor3 = Color3.fromRGB(199, 199, 199)
-    minimizeButton.Text = "▼"
-    minimizeButton.TextSize = 28  
-    minimizeButton.TextColor3 = Color3.new(0, 0, 0)
-    minimizeButton.Font = Enum.Font.SourceSans
-    minimizeButton.Parent = frame
-
-    local isMinimized = false
-
-    local minimizeCorner = Instance.new("UICorner")
-    minimizeCorner.CornerRadius = UDim.new(0, 5)
-    minimizeCorner.Parent = minimizeButton
-
-    minimizeButton.MouseButton1Click:Connect(function()
-        if isMinimized then
-            frame.Size = UDim2.new(0, 500, 0, 280)
-            titleLabel.Position = UDim2.new(0, 0, 0.01, 0)
-            minimizeButton.Text = "▼"
-            minimizeButton.TextSize = 28
-            isMinimized = false
-            disagreeButton.Visible = true
-            agreeButton.Visible = true
-            agreeFrame.Visible = true
+        if REN["白名单"]["普通白名单"]["状态"] == true then
+            scripts()
         else
-            frame.Size = UDim2.new(0, 500, 0, 60)
-            titleLabel.Position = UDim2.new(0, 0, 0, 0)
-            minimizeButton.Text = "▲"
-            minimizeButton.TextSize = 28 
-            isMinimized = true
-            disagreeButton.Visible = false
-            agreeButton.Visible = false
-            agreeFrame.Visible = false
+                setclipboard("139341298")
+            game.Players.LocalPlayer:Kick("请您到139341298购买白名单")
         end
-    end)
-
-    local function AnimateExit()
-        local duration = 1
-        local startTime = tick()
-        local initialSize = frame.Size
-        while (tick() - startTime) < duration do
-            local elapsedTime = tick() - startTime
-            local scale = 1 - elapsedTime / duration
-            frame.Size = UDim2.new(initialSize.X.Scale * scale, initialSize.X.Offset * scale,
-                initialSize.Y.Scale * scale, initialSize.Y.Offset * scale)
-            frame.Position = frame.Position + UDim2.new((1 - scale) / 2, 0, (1 - scale) / 2, 0)
-            wait()
-        end
-        gui:Destroy()
-    end
-    disagreeButton.MouseButton1Click:Connect(function()
-        AnimateExit()
-    end)
-    agreeButton.MouseButton1Click:Connect(function()
-        AnimateExit()
-		
-function qd()  
-local ScreenGui = Instance.new("ScreenGui")
-local UI = Instance.new("Frame")
-local Title = Instance.new("TextLabel")
-local Frame = Instance.new("Frame")
-local Key = Instance.new("TextBox")
-local Start = Instance.new("TextButton")
-
-ScreenGui.Parent = game.CoreGui
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-local ScreenGui1 = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local UICorner1 = Instance.new("UICorner")
-local TextLabel1 = Instance.new("TextLabel")
-local UICorner2 = Instance.new("UICorner")
-local TextLabel2 = Instance.new("TextLabel")
-local UICorner3 = Instance.new("UICorner")
-local ImageLabel = Instance.new("ImageLabel")
-local ScreenGui2 = Instance.new("ScreenGui")
-local TextLabel3 = Instance.new("TextLabel")
-local ScreenGui2 = Instance.new("ScreenGui")
-local TextLabel3 = Instance.new("TextLabel")
-local ScreenGui3 = Instance.new("ScreenGui")
-local TextLabel4 = Instance.new("TextLabel")
-local notification = Instance.new("ScreenGui")
-local Popup = Instance.new("Frame")
-local UIListLayout = Instance.new("UIListLayout")
-local notification2 = Instance.new("TextLabel")
-local UIGradient = Instance.new("UIGradient")
-local UICorner = Instance.new("UICorner")
----------------------------------------
-ScreenGui1.Parent = game.CoreGui
-ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-Frame.Parent = ScreenGui1
-Frame.BackgroundColor3 = Color3.fromRGB(0,0,0)
-Frame.Position = UDim2.new(-1.448, 0,0.065, 0)
-Frame.Size = UDim2.new(0.275353014, 0, 0.820448875, 0)
-
-UICorner1.CornerRadius = UDim.new(0, 30)
-UICorner1.Parent = Frame
-
-UICorner3.CornerRadius = UDim.new(0, 30)
-UICorner3.Parent = TextLabel2
-
-ImageLabel.Parent = Frame
-ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel.BackgroundTransparency = 1.000
-ImageLabel.Position = UDim2.new(0.0842586756, 0, 0.408814579, 0)
-ImageLabel.Size = UDim2.new(0.703620017, 0, 0.227963522, 0)
-ImageLabel.Image = "rbxassetid://14904708387"
-
-ScreenGui2.Name = "ScreenGui2"
-ScreenGui2.Parent = game.CoreGui
-ScreenGui2.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-TextLabel3.Name = "TextLabel3"
-TextLabel3.Parent = ScreenGui2
-TextLabel3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel3.BackgroundTransparency = 1.000
-TextLabel3.Position = UDim2.new(-1.448, 0,0.255, 0)
-TextLabel3.Size = UDim2.new(0.51219511, 0, 0.28553617, 0)
-TextLabel3.Font = Enum.Font.SourceSans
-TextLabel3.Text = "您的注入器是: "..identifyexecutor()
-TextLabel3.TextColor3 = Color3.fromRGB(255, 0, 0)
-TextLabel3.TextScaled = true
-TextLabel3.TextSize = 14.000
-TextLabel3.TextWrapped = true
-
-ScreenGui3.Name = "ScreenGui3"
-ScreenGui3.Parent = game.CoreGui
-ScreenGui3.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-TextLabel4.Name = "TextLabel3"
-TextLabel4.Parent = ScreenGui2
-TextLabel4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel4.BackgroundTransparency = 1.000
-TextLabel4.Position = UDim2.new(-1.448, 0,0.255, 0)
-TextLabel4.Size = UDim2.new(0.51219511, 0, 0.28553617, 0)
-TextLabel4.Font = Enum.Font.SourceSans
-TextLabel4.Text = "正在加载（时间较长）..."
-TextLabel4.TextColor3 = Color3.fromRGB(255, 0, 0)
-TextLabel4.TextScaled = true
-TextLabel4.TextSize = 14.000
-TextLabel4.TextWrapped = true
----------------------------------------
-
-wait(1)
-TextLabel3:TweenPosition(UDim2.new(0.231, 0,0.255, 0), "InOut", "Quad", 1, true)
-wait(2)
-TextLabel3:TweenPosition(UDim2.new(1.526, 0,0.255, 0), "InOut", "Quad", 2, true)
-wait(1)
-TextLabel4:TweenPosition(UDim2.new(0.231, 0,0.255, 0), "InOut", "Quad", 1, true)
-wait(2)
-TextLabel4:TweenPosition(UDim2.new(1.526, 0,0.255, 0), "InOut", "Quad", 1, true)
-wait(2)
-Frame:Destroy()
-TextLabel3:Destroy()
-TextLabel4:Destroy()
-key()
-end
-
-  		local NotificationBindable = Instance.new("BindableFunction")
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "忍脚本",
-			Text = "是否加载脚本启动动画",
-			Icon = nil,
-			Duration = 10,
-			Button1 = "确定",
-			Button2 = "取消",
-			Callback = NotificationBindable
-		})
-		NotificationBindable.OnInvoke = function(text)
-		if text == "确定" then
-		qd()
-		else
-		  key()
-		end
-		end	
-
-  end)
-end
-local myTitle = "忍脚本协议条款" 
-CreateGUI(myTitle)
-end
-
-if R0==[[ ________________    ]] and R1==[[/    ↓保护涵数↓       \   ]] and R2==[[|    脚本名:忍脚本        |   ]] and R3==[[|   群号:139341298     |   ]] and R4==[[| 使用脚本封号不负责 |   ]] and R5==[[|        请勿抄袭            |   ]] and R6==[[| ________________ |   ]]then
-		local NotificationBindable = Instance.new("BindableFunction")
-		NotificationBindable.OnInvoke = function(text)
-		if text == "确定" then
-		script()
-		else
-		  notify("忍脚本","已退出",5)
-		end
-		end
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "忍脚本",
-			Text = "是否启动脚本",
-			Icon = nil,
-			Duration = 10,
-			Button1 = "确定",
-			Button2 = "取消",
-			Callback = NotificationBindable
-		})
-	else
-notify("忍脚本","请勿删除保护涵数",5)
 end
