@@ -1,12 +1,16 @@
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local REN = {}
 local REN ={
+    ["lp"] = game.Players.LocalPlayer;
     ["游戏名"] = tostring(game.Players.LocalPlayer.Character);
-  
-  
-  
-  
-  
+    
+    
+    ["拓展表"] = {
+        ["传送到玩家身边"] = {
+            playernamedied=nil;
+            dropdown={};
+        };
+    };
     ["白名单"] = {
         ["开发者白名单"] = {
             ["状态"] = false;
@@ -22,6 +26,7 @@ local REN ={
                 "noobyyds7",
                 "666l104",
                 "fjfjdjdjdj375",
+                "CH_xiaochen",
            };
         };
     };
@@ -45,7 +50,8 @@ end)
 
 function scripts()							
 loadstring(game:HttpGet("https://pastebin.com/raw/6xQ5gtbj"))();
-local ui = loadstring(game:HttpGet"https://pastebin.com/raw/cApeA3dS")()
+--local ui = loadstring(game:HttpGet"https://pastebin.com/raw/cApeA3dS")()
+local ui = loadstring(game:HttpGet"https://pastebin.com/raw/E9PzvbeX")()
 local win = ui:new("忍脚本")
 --
 local UITab1 = win:Tab("公告&关于",'6035145364')
@@ -101,7 +107,7 @@ local JS = JS1:section("极速传奇",true)
 local RZCQ = RZCQ1:section("忍者传奇",false)
 local RZCQCS = RZCQ1:section("传送",false)
 --
-local li666 = li1:section("力量传奇",false)
+local li0 = li1:section("主要功能",false)
 local li = li1:section("传送",false)
 --
 local FM = FM1:section("伐木大亨2",false)
@@ -145,49 +151,43 @@ UITab2:Button("作者QQ：2909431794", function()
 setclipboard("2909431794")
 end)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-local bai={
-  playernamedied=nil,
-  dropdown=nil,
-  
-}
-local lp=game.Players.LocalPlayer
 function tp(p)
-   lp.Character:PivotTo(p)
+   REN.lp.Character:PivotTo(p)
 end
 function shuaxinlb(zji)
-    bai.dropdown={}
+    REN["拓展表"]["传送到玩家身边"].dropdown={}
     if zji==true then
     for p, I in next,game.Players:GetChildren() do
-    table.insert(bai.dropdown, I.Name)
+    table.insert(REN["拓展表"]["传送到玩家身边"].dropdown, I.Name)
     end
     else
     for p, I in next, game.Players:GetChildren() do
     if I ~= lp then
-    table.insert(bai.dropdown, I.Name)
+    table.insert(REN["拓展表"]["传送到玩家身边"].dropdown, I.Name)
     end
     end
     end
     end
     shuaxinlb(true)
 
-local dropdown = Player:Dropdown("选择玩家名称",'Dropdown',bai.dropdown,function(v)
-    bai.playernamedied = v
+local dropdown = Player:Dropdown("选择玩家名称",'Dropdown',REN["拓展表"]["传送到玩家身边"].dropdown,function(v)
+    REN["拓展表"]["传送到玩家身边"].playernamedied = v
 end)
 
 Player:Button("刷新列表", function()
 	shuaxinlb(true)
-	dropdown:SetOptions(bai.dropdown)
+	dropdown:SetOptions(REN["拓展表"]["传送到玩家身边"].dropdown)
 end)
 
 Player:Button("传送到玩家旁边",function()  
-            tp(game:GetService("Players")[bai.playernamedied].Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0))
+            tp(game:GetService("Players")[REN["拓展表"]["传送到玩家身边"].playernamedied].Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0))
 end)
 
 Player:Button("飞行", function()
   loadstring(game:HttpGet('https://pastebin.com/raw/28CWNSrK'))();
 end)
 
-Player:Slider('设置速度', 'Sliderflag', 16, 16, 900,false, function(Value)
+Player:Slider('设置速度', 'Sliderflag', 16, 16, 200,false, function(Value)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
 end)
 
@@ -442,9 +442,8 @@ RZCQCS:Button("传送到死亡宠物", function()
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4593.21337890625, 130.87181091308594, 1430.2239990234375)
 end)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------    
-li666:Button("白--力量传奇", function()
-loadstring(game:HttpGet("https://pastebin.com/raw/7VSAMwHn"))();
-end)
+
+
 li:Button("传送到出生点", function()
       		      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(7, 3, 108)
 end)
@@ -1069,13 +1068,13 @@ CS:Button("原子弹", function()
 loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
 end)
 
-CS:Button("圣光", function()
-    game.Lighting.Ambient = Color3.new(9999, 9999, 9999)
-end)
+-- CS:Button("圣光", function()
+    -- game.Lighting.Ambient = Color3.new(9999, 9999, 9999)
+-- end)
 
-CS:Button("超广角", function()
-Workspace.CurrentCamera.FieldOfView = 9999999
-end)
+-- CS:Button("超广角", function()
+-- Workspace.CurrentCamera.FieldOfView = 9999999
+-- end)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 end
@@ -1092,6 +1091,6 @@ if REN["白名单"]["开发者白名单"]["状态"] == true then
             scripts()
         else
                 setclipboard("139341298")
-            game.Players.LocalPlayer:Kick("请您到139341298购买白名单")
+            game.Players.LocalPlayer:Kick(REN["游戏名"].."请您到139341298购买白名单\n")
         end
 end
