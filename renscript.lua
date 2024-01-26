@@ -30,6 +30,7 @@ local REN ={
                 
                 "ni_ma88",
                 "yuanjiukangnb",
+                "t66zhaoming",
            };
         };
     };
@@ -351,8 +352,8 @@ gy:Label("您的注入器:"..identifyexecutor())
 
 gy:Label("您当前服务器的ID:"..game.GameId)
 
-UITab:Button("官方交流群：139341298(点击后自动复制)", function()
-setclipboard("139341298")
+UITab:Button("官方交流群：719409149(点击后自动复制)", function()
+setclipboard("719409149")
 end)
 
 UITab:Label("忍脚本和清风脚本和静新脚本合并")
@@ -1838,8 +1839,9 @@ if REN["白名单"]["开发者白名单"]["状态"] == true then
         wait(3)       
         scripts()
     else
-        if R ~= "忍脚本交流群:139341298" then
-                game.Players.LocalPlayer:Kick("请勿删除保护涵数")
+        if R ~= "忍脚本交流群:719409149" then
+                setclipboard("719409149")
+                game.Players.LocalPlayer:Kick("请到719409149获取最新脚本")
               else   
                 notify("忍脚本","保护函数正确",3)                           
         end
@@ -1848,7 +1850,7 @@ if REN["白名单"]["开发者白名单"]["状态"] == true then
             notify("忍脚本","正在启动脚本....",5)
             scripts()
         else
-                setclipboard("139341298")
-            game.Players.LocalPlayer:Kick(REN["游戏名"].."请您到139341298购买白名单\n")
+                setclipboard("719409149")
+            game.Players.LocalPlayer:Kick(REN["游戏名"].."请您到719409149购买白名单\n")
         end
 end
