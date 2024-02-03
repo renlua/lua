@@ -7196,11 +7196,11 @@ if REN["白名单"]["开发者白名单"]["状态"] == true then
         wait(3)       
         scripts()
     else
-        if R ~= " 忍 交流群:719409149" or R ~= "忍脚本交流群:139341298" then
-                setclipboard("139341298")
-                game.Players.LocalPlayer:Kick("请到139341298获取最新脚本")
-              else   
-                notify(" 忍 ","保护函数正确",3)                           
+        if R == "忍脚本交流群:139341298" then
+            notify(" 忍 ","保护函数正确",3)
+        else   
+            setclipboard("139341298")
+            game.Players.LocalPlayer:Kick("请到139341298获取最新脚本")                                           
         end
         if REN["白名单"]["普通白名单"]["状态"] == true then
             notify(" 忍 ","白名单正确",3)
