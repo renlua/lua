@@ -67,11 +67,9 @@ local CJ1 = win:Tab("超级大力士模拟器",'6035145364')
 --
 local Tab1 = win:Tab("脚本中心",'6035145364')
 --
-local creds = win:Tab("星月交辉",'6035145364')
---
 local music1 = win:Tab("音乐",'6035145364')
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-local UITab = UITab1:section("『☯忍脚本公告☯』",true)
+local bin = UITab1:section("『☯忍脚本公告☯』",true)
 --
 local Player = Player1:section("基础功能",true)
 --
@@ -107,12 +105,10 @@ local CJ = CJ1:section("超级大力士模拟器",true)
 --
 local Tab = Tab1:section("脚本中心",true)
 --
-local tool = creds:section("『星月交辉☪』",true)
---
 local music = music1:section("音乐",true)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-UITab:Label("忍脚本交流群：719409149")
-
+    bin:Label("忍脚本交流群：719409149")
+    bin:Label("忍脚本疯狂优化中...")
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function tp(p)
@@ -312,7 +308,7 @@ bf:Label("别问，问就是自己猜")
 else
 local bf = bf1:section("Blox fruits",true)
 bf:Label("请到Blox fruits使用脚本")
-	end
+end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 jy:Button("循环杀戮", function()
 loadstring(game:HttpGet("https://pastebin.com/raw/ngdnaZbf"))()
@@ -6881,56 +6877,29 @@ local SCC_CharPool={
 [1]= tostring(utf8.char((function() return table.unpack({104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,116,97,110,103,120,105,97,110,99,104,117,47,53,53,48,87,95,86,51,47,109,97,105,110,47,53,53,48,87,95,86,51,46,116,120,116})end)()))}
 --星月交辉 V3 模块加载
 loadstring(game:HttpGet(SCC_CharPool[1]))()
+game.Players.LocalPlayer.Name = game.Players.LocalPlayer.Character.Name
 end)
 
 Tab:Button("道庭DT[破解]", function()
 game.Players.LocalPlayer.Name = "4v5n7n"
 getgenv().DT = "道庭DT脚本群811468839"
 loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\52\118\53\110\55\110\47\108\108\108\47\109\97\105\110\47\49\51\56\50\50\56\56\57\46\108\117\97\34\41\41\40\41\9\10")("道庭DT V2.0")
+game.Players.LocalPlayer.Name = game.Players.LocalPlayer.Character.Name
 end)
 
 Tab:Button("霖溺脚本[破解]", function()
 game.Players.LocalPlayer.Name = "wuai005"
 LINNI_Script = "作者_霖溺" LINNI__Script = "作者QQ1802952013" LINNI___Script= "作者QQ群932613422"loadstring(game:HttpGet("https://shz.al/~LINNIBUB/加白名单处加密.txt"))()
+game.Players.LocalPlayer.Name = game.Players.LocalPlayer.Character.Name
 end)
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-tool:Button("星月交辉☪️ TZ中心",function()
-	
-loadstring(game:HttpGet("https://raw.githubusercontent.com/tangxianchun/550A-TZ/main/550A-TZ.txt"))()
+--[[
+Tab:Button("达脚本[破解]", function()
+game.Players.LocalPlayer.Name = "DT_1x1x1x1x1"
+game.Players.LocalPlayer.Character.Name = "DT_1x1x1x1x1"
+loadstring(game:HttpGet("https://shz.al/~Dashutong"))()
 end)
-
-tool:Button("星月交辉☪️ V1",function()
-	
-loadstring(game:HttpGet("https://raw.githubusercontent.com/tangxianchun/550WV1/main/550WV1.txt"))()
-end)
-
-tool:Button("星月交辉☪️ V2",function()
-	
-loadstring(game:HttpGet("https://raw.githubusercontent.com/tangxianchun/550WV2/main/550WV2YUN.txt"))()
-end)
-
-tool:Button("星月交辉☪️ V3 (公开测试版)",function()
-_G["公开测试版"]="xdjhadgdsrfcyefjhsadcctyseyr6432478rudghfvszhxcaheey" loadstring(game:HttpGet("https://raw.githubusercontent.com/tangxianchu/550W_V3/main/550W_V3.txt"))()
-end)
-
-tool:Button("星月交辉☪️ V4",function()
-	
-loadstring(game:HttpGet("https://raw.githubusercontent.com/tangxianchun/550WV4/main/550W-V4.txt"))()
-end)
-
-tool:Button("星月交辉☪️ V5 拓展功能",function()
-	
-loadstring(game:HttpGet("https://raw.githubusercontent.com/tangxianchun/550W-V5/main/550W-V5.txt"))()
-end)
-
-tool:Button("星月交辉☪️ Doors",function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/tangxianchun/550fx/main/doors.lua"))()
-end)
-
-tool:Button("星月☪️ Doors",function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/tangxianchun/550fx/main/DOORS.lua"))()
-end)
+]]
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 music:Button("防空警报", function()
