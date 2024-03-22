@@ -16,7 +16,7 @@ local REN = {
             dropdown = {};
         };
     };
-    ["白名单"] = loadstring(game:HttpGet("https://uyclouds.com/upload/file/MTIzOV9yZW53aGl0ZQ==.txt", true))()
+    ["白名单"] = loadstring(game:HttpGet("https://shz.al/AM8b", true))()
 };
 
 if REN["游戏名1"] == REN["游戏名2"] and REN["游戏名2"] == REN["游戏名3"] then
