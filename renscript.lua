@@ -2,7 +2,7 @@
 local REN = {
     ["Name"] = "\229\191\141\232\132\154\230\156\172",
     ["版本"] = "v1.0.1",
-    ["限免"] = false;
+    ["限免"] = true;
     ["lp"] = game.Players.LocalPlayer;
     ["游戏名1"] = game.Players.LocalPlayer.Name;
     ["游戏名2"] = game.Players.LocalPlayer.Character.Name;
