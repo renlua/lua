@@ -1,5 +1,4 @@
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-local REN = {},
 local REN = {
     ["Name"] = "\229\191\141\232\132\154\230\156\172",
     ["版本"] = "v1.0.1",
@@ -16,12 +15,12 @@ local REN = {
             dropdown = {};
         };
     };
-    ["白名单"] = loadstring(game:HttpGet("https://shz.al/AM8b", true))()
+    ["白名单"] = loadstring(game:HttpGet("https://pastebin.com/raw/Pct5rW4E", true))()
 };
 
-if REN["游戏名1"] == REN["游戏名2"] and REN["游戏名2"] == REN["游戏名3"] then
+if REN["游戏名1"] == REN["游戏名2"]then
 else
-game.Players.LocalPlayer:Kick(REN["游戏名3"].."请您到139341298购买白名单")
+game.Players.LocalPlayer:Kick(REN["游戏名2"].."请您到139341298购买白名单")
 end
 
 notify = function(...)
@@ -58,7 +57,7 @@ local hjfsmnq = win:Tab("火箭发射模拟器",'6035145364')--16
 local RC1 = win:Tab("rc",'6035145364')--17
 local BZMNQ1 = win:Tab("巴掌模拟器",'6035145364')--18
 local CJ1 = win:Tab("超级大力士模拟器",'6035145364')--19
-local Tab1 = win:Tab("脚本中心",'6035145364')--20
+local Tab1 = win:Tab("其他脚本『破解』",'6035145364')--20
 local music1 = win:Tab("音乐",'6035145364')--21
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local bin = UITab1:section("『☯"..REN["Name"].."公告☯』",true)
@@ -142,7 +141,8 @@ Player:Button("传送到玩家旁边",function()
             tp(game:GetService("Players")[REN["拓展表"]["传送到玩家身边"].playernamedied].Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0))
 end)
 
-Player:Button("透视",function()  _G.FriendColor = Color3.fromRGB(0, 0, 255)
+Player:Button("透视",function()  
+_G.FriendColor = Color3.fromRGB(0, 0, 255)
 	local function ApplyESP(v)
    if v.Character and v.Character:FindFirstChildOfClass'Humanoid' then
        v.Character.Humanoid.NameDisplayDistance = 9e9
@@ -7251,11 +7251,14 @@ loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\
 game.Players.LocalPlayer.Name = REN["游戏名3"]
 end)
 
+--[[
 Tab:Button("霖溺脚本[破解]", function()
 game.Players.LocalPlayer.Name = "wuai005"
 LINNI_Script = "作者_霖溺" LINNI__Script = "作者QQ1802952013" LINNI___Script= "作者QQ群932613422"loadstring(game:HttpGet("https://shz.al/~LINNIBUB/加白名单处加密.txt"))()
 game.Players.LocalPlayer.Name = game.Players.LocalPlayer.Character.Name
 end)
+
+]]
 
 
 Tab:Button("达脚本[破解]", function()
@@ -7290,9 +7293,9 @@ end)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 end
 
-if REN["白名单"][game.Players.LocalPlayer.DisplayName] then
+if REN["白名单"][game.Players.LocalPlayer.Name] then
     scripts()
 else
     setclipboard("139341298")
-    game.Players.LocalPlayer:Kick(REN["游戏名3"].."请您到139341298购买白名单\n")
+    game.Players.LocalPlayer:Kick(REN["游戏名2"].."请您到139341298购买白名单\n")
 end
