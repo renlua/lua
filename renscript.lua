@@ -2,11 +2,12 @@
 local REN = {
     ["Name"] = "\229\191\141\232\132\154\230\156\172",
     ["版本"] = "v1.0.1",
-    ["限免"] = true;
+    ["限免"] = false;
     ["lp"] = game.Players.LocalPlayer;
     ["游戏名1"] = game.Players.LocalPlayer.Name;
     ["游戏名2"] = game.Players.LocalPlayer.Character.Name;
     ["游戏名3"] = game.Players.LocalPlayer.DisplayName;
+--    ["游戏名4"] = player.Name;
     
     
     ["拓展表"] = {
@@ -216,6 +217,12 @@ end)
 Player:Button("飞行", function()
 loadstring(game:HttpGet("https://pastebin.com/raw/28CWNSrK"))();
 end)
+
+Player:Button("原子弹", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
+end)
+
+
 
 Player:Toggle("穿墙","Toggle",false,function(Value)
 		if Value then
@@ -7234,39 +7241,10 @@ CJ:Button("传送到下水道区域", function()
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(47.36086654663086, 12.25178050994873, 17656.04296875)
 end)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------                                                                                                                                                                                                                                                                                                                            
-Tab:Button("星月交辉 V3[破解]", function()
-game.Players.LocalPlayer.Name = "tangxianchu"
-local SCC_CharPool={
-[1]= tostring(utf8.char((function() return table.unpack({104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,116,97,110,103,120,105,97,110,99,104,117,47,53,53,48,87,95,86,51,47,109,97,105,110,47,53,53,48,87,95,86,51,46,116,120,116})end)()))}
---星月交辉 V3 模块加载
-loadstring(game:HttpGet(SCC_CharPool[1]))()
-game.Players.LocalPlayer.Name = game.Players.LocalPlayer.Character.Name
+Tab:Button("破解中心", function()
+name = "破解中心"
+loadstring(game:HttpGet("https://pastebin.com/raw/34kFgqZ5"))();
 end)
-
-Tab:Button("道庭DT[破解]", function()
-game.Players.LocalPlayer.Name = "4v5n7n"
-game.Players.LocalPlayer.Character.Name = "4v5n7n"
-getgenv().DT = "道庭DT脚本群811468839"
-loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\52\118\53\110\55\110\47\108\108\108\47\109\97\105\110\47\49\51\56\50\50\56\56\57\46\108\117\97\34\41\41\40\41\9\10")("道庭DT V2.0")
-game.Players.LocalPlayer.Name = REN["游戏名3"]
-end)
-
---[[
-Tab:Button("霖溺脚本[破解]", function()
-game.Players.LocalPlayer.Name = "wuai005"
-LINNI_Script = "作者_霖溺" LINNI__Script = "作者QQ1802952013" LINNI___Script= "作者QQ群932613422"loadstring(game:HttpGet("https://shz.al/~LINNIBUB/加白名单处加密.txt"))()
-game.Players.LocalPlayer.Name = game.Players.LocalPlayer.Character.Name
-end)
-
-]]
-
-
-Tab:Button("达脚本[破解]", function()
-game.Players.LocalPlayer.Name = "sjqgduf2"
-loadstring(game:HttpGet("https://shz.al/~Dashutong"))()
-game.Players.LocalPlayer.Name = game.Players.LocalPlayer.Character.Name
-end)
-
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 music:Button("防空警报", function()
