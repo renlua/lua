@@ -1,13 +1,13 @@
 -----------------------------------------------------------//加载函数\\-----------------------------------------------------------
-local ui = loadstring(game:HttpGet("https://pastebin.com/raw/k2GDjYzJ"))();
+local ui = loadstring(game:HttpGet("https://pastebin.com/raw/E9PzvbeX"))();
 local notify = loadstring(game:HttpGet("https://pastebin.com/raw/DSi2P8Yc"))();
 local whitelist = loadstring(game:HttpGet("https://pastebin.com/raw/Pct5rW4E"))();
 local use_load = loadstring(game:HttpGet("https://pastebin.com/raw/L8B3eNWz"))();
 -----------------------------------------------------------\\加载函数//-----------------------------------------------------------
 local REN = {
     ["Name"] = "\229\191\141\232\132\154\230\156\172",
-    ["版本"] = "v3.0",
-    ["限免"] = trye;
+    ["版本"] = "v1.0.1",
+    ["限免"] = true;
     ["lp"] = game.Players.LocalPlayer;
     ["游戏名1"] = game.Players.LocalPlayer.Name;
     ["游戏名2"] = game.Players.LocalPlayer.Character.Name;
@@ -35,6 +35,7 @@ local UITab1 = win:Tab("『信息』",'6035145364')--1
 local Player1 = win:Tab("基础功能",'6035145364')--2
 local rgb1 = win:Tab("光影",'6035145364')--3
 local ehe1 = win:Tab("俄亥俄州",'6035145364')--4
+local heh1 = win:Tab("奎尔湖",'6035145364')--4
 local bf1 = win:Tab("Blox fruits",'6035145364')--5
 local jy1 = win:Tab("监狱人生",'6035145364')--6
 local sjx1 = win:Tab("铲雪模拟器",'6035145364')--7
@@ -52,7 +53,6 @@ local BZMNQ1 = win:Tab("巴掌模拟器",'6035145364')--18
 local CJ1 = win:Tab("超级大力士模拟器",'6035145364')--19
 local Tab1 = win:Tab("其他脚本『破解』",'6035145364')--20
 local music1 = win:Tab("音乐",'6035145364')--21
-local cs = win:Tab("测试功能",'6035145364')--21
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local bin = UITab1:section("『☯"..REN["Name"].."公告☯』",true)
 --
@@ -61,6 +61,8 @@ local Player = Player1:section("基础功能",true)
 local rgb = rgb1:section("光影",true)
 --
 local ehe = ehe1:section("俄亥俄州",true)
+--
+local heh = heh1:section("奎尔湖",true)
 --
 local jy = jy1:section("监狱人生",true)
 --
@@ -97,8 +99,6 @@ local CJ = CJ1:section("超级大力士模拟器",true)
 local Tab = Tab1:section("脚本中心",true)
 --
 local music = music1:section("音乐",true)
---
-local csgo = cs:section('测试功能 使用如果封号概不负责',false)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     bin:Label(REN["Name"].."交流群：719409149")
     bin:Label(REN["Name"].."疯狂优化中...")
@@ -219,6 +219,12 @@ Player:Button("飞行", function()
 use_load("https://pastebin.com/raw/28CWNSrK")
 end)
 
+Player:Button("原子弹", function()
+use_load("https://pastebin.com/raw/FqWgJJEp")
+end)
+
+
+
 Player:Toggle("穿墙","Toggle",false,function(Value)
 		if Value then
 		    Noclip = true
@@ -252,7 +258,6 @@ Player:Toggle("夜视","Toggle",false,function(Value)
         end
     end)
 end)
---Made by Prox
 
 Player:Toggle("无限跳","Toggle",false,function(Value)
     Jump = Value
@@ -263,10 +268,12 @@ Player:Toggle("无限跳","Toggle",false,function(Value)
     end)
 end)
 
-Player:Slider('设置速度', 'Sliderflag', game.Players.LocalPlayer.Character.Humanoid.WalkSpeed, 16, 200,false, function(Value)
-
+Player:Slider('设置速度', 'Sliderflag', 16, 16, 200,false, function(Value)
+game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
             game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-
+        end)
+    end)
 end)
 
 Player:Slider('设置血量', 'Sliderflag', 100, 1, 100,false, function(Value)
@@ -310,6 +317,53 @@ else
 local bf = bf1:section("Blox fruits",true)
 bf:Label("请到Blox fruits使用脚本")
 end
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+heh:Toggle("无敌模式","", false, function(Value)
+    game.ReplicatedStorage.DamageHumanoid:FireServer(-2e9)
+end)
+
+heh:Button("无限金钱", function()
+local money = {
+   [1] = -9999,
+   [2] = "Buy"
+}
+
+game:GetService("ReplicatedStorage").Pay:FireServer(unpack(money))
+end)
+
+heh:Button("无限金币", function()
+local gold = {
+   [1] = game:GetService("Players").LocalPlayer.GoldCoins,
+   [2] = 99999
+}
+
+game:GetService("ReplicatedStorage").ChangeValue:FireServer(unpack(gold))
+end)
+
+heh:Button("给所有物品", function()
+game.ReplicatedStorage.GiveTool:FireServer("SeaScooter")
+game.ReplicatedStorage.GiveTool:FireServer("Lantern")
+game.ReplicatedStorage.GiveTool:FireServer("Compass")
+game.ReplicatedStorage.GiveTool:FireServer("ItemFinder")
+game.ReplicatedStorage.GiveTool:FireServer("Aquabreather")
+end)
+
+heh:Button("红色套装", function()
+game.ReplicatedStorage.ChangeOutfits:FireServer("FireSuit")
+end)
+
+heh:Button("黄色套装", function()
+game.ReplicatedStorage.ChangeOutfits:FireServer("HazmatSuit")
+end)
+
+heh:Button("海盗套装", function()
+game.ReplicatedStorage.ChangeOutfits:FireServer("PirateCostume")
+end)
+
+heh:Button("动力套装", function()
+game.ReplicatedStorage.ChangeOutfits:FireServer("SuperScuba")
+end)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 jy:Button("循环杀戮", function()
     use_load("https://pastebin.com/raw/ngdnaZbf")
@@ -7267,50 +7321,14 @@ sound.SoundId = "rbxassetid://1837879082"
 sound.Parent = game.Workspace
 sound:Play()
 end)
---//测试功能\\--
-csgo:Button("原子弹", function()
-    use_load("https://pastebin.com/raw/FqWgJJEp")
-end)
-csgo:Label("使用方法：")
-csgo:Label("输入背景图ID 如 rbxassetid://6035145364")
-csgo:Textbox("自定义背景图",'TextBoxfalg',"输入背景图ID",function(s)	
 
-end)   
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 end
 if REN["限免"] == true then
-print('Ren scripts studio')    
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('忍脚本启动成功')  
 scripts()
 else
 if whitelist[game.Players.LocalPlayer.Name] then
-print('Ren scripts studio')    
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('Ren scripts studio')  
-print('忍脚本启动成功')  
-scripts()
+    scripts()
 else
     setclipboard("139341298")
     game.Players.LocalPlayer:Kick(REN["游戏名2"].."请您到139341298购买白名单\n")
