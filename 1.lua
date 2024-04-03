@@ -1,7 +1,7 @@
 if R == "忍脚本交流群:139341298" then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/renlua/lua/main/renscript.lua"))();
-elseif name == "破解中心" then
-loadstring(game:HttpGet("https://pastebin.com/raw/WHhXwpEz"))();
+elseif R == "清风脚本" then
+loadstring(game:HttpGet("https://shz.al/wQcr"))();
 else
 local CoreGui = game:GetService("StarterGui")
 CoreGui:SetCore("SendNotification", {
