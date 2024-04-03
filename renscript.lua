@@ -1,8 +1,13 @@
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------//加载函数\\-----------------------------------------------------------
+local ui = loadstring(game:HttpGet("https://pastebin.com/raw/k2GDjYzJ"))();
+local notify = loadstring(game:HttpGet("https://pastebin.com/raw/DSi2P8Yc"))();
+local whitelist = loadstring(game:HttpGet("https://pastebin.com/raw/Pct5rW4E"))();
+local use_load = loadstring(game:HttpGet("https://pastebin.com/raw/L8B3eNWz"))();
+-----------------------------------------------------------\\加载函数//-----------------------------------------------------------
 local REN = {
     ["Name"] = "\229\191\141\232\132\154\230\156\172",
-    ["版本"] = "v1.0.1",
-    ["限免"] = false;
+    ["版本"] = "v3.0",
+    ["限免"] = trye;
     ["lp"] = game.Players.LocalPlayer;
     ["游戏名1"] = game.Players.LocalPlayer.Name;
     ["游戏名2"] = game.Players.LocalPlayer.Character.Name;
@@ -16,7 +21,6 @@ local REN = {
             dropdown = {};
         };
     };
-    ["白名单"] = loadstring(game:HttpGet("https://pastebin.com/raw/Pct5rW4E", true))()
 };
 
 if REN["游戏名1"] == REN["游戏名2"]then
@@ -24,19 +28,7 @@ else
 game.Players.LocalPlayer:Kick(REN["游戏名2"].."请您到139341298购买白名单")
 end
 
-notify = function(...)
-local Args = {...}
-local CoreGui = game:GetService("StarterGui")
-CoreGui:SetCore("SendNotification", {
-    Title = ""..Args[1].."",
-    Text = ""..Args[2].."",
-    Duration = ""..Args[3].."",
-})
-end
-
 function scripts()							
---local ui = loadstring(game:HttpGet"https://pastebin.com/raw/cApeA3dS")()
-local ui = loadstring(game:HttpGet"https://pastebin.com/raw/E9PzvbeX")()
 local win = ui:new(""..REN["Name"]..""..REN["版本"].."")
 --
 local UITab1 = win:Tab("『信息』",'6035145364')--1
@@ -60,6 +52,7 @@ local BZMNQ1 = win:Tab("巴掌模拟器",'6035145364')--18
 local CJ1 = win:Tab("超级大力士模拟器",'6035145364')--19
 local Tab1 = win:Tab("其他脚本『破解』",'6035145364')--20
 local music1 = win:Tab("音乐",'6035145364')--21
+local cs = win:Tab("测试功能",'6035145364')--21
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local bin = UITab1:section("『☯"..REN["Name"].."公告☯』",true)
 --
@@ -104,20 +97,13 @@ local CJ = CJ1:section("超级大力士模拟器",true)
 local Tab = Tab1:section("脚本中心",true)
 --
 local music = music1:section("音乐",true)
+--
+local csgo = cs:section('测试功能 使用如果封号概不负责',false)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-if game.Players.LocalPlayer.DisplayName == "pjscript" then
-    bin:Label(REN["Name"].."十分欢迎你")
-    bin:Label(REN["Name"].."为你准备了礼炮")
-while true do
-    wait(3)
-    loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
-end
-
-else
     bin:Label(REN["Name"].."交流群：719409149")
     bin:Label(REN["Name"].."疯狂优化中...")
     bin:Label(REN["Name"].."最新版本:"..REN["版本"].."")
-end
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function tp(p)
@@ -230,14 +216,8 @@ end)
 end)
 
 Player:Button("飞行", function()
-loadstring(game:HttpGet("https://pastebin.com/raw/28CWNSrK"))();
+use_load("https://pastebin.com/raw/28CWNSrK")
 end)
-
-Player:Button("原子弹", function()
-loadstring(game:HttpGet("https://pastebin.com/raw/FqWgJJEp"))();
-end)
-
-
 
 Player:Toggle("穿墙","Toggle",false,function(Value)
 		if Value then
@@ -272,6 +252,7 @@ Player:Toggle("夜视","Toggle",false,function(Value)
         end
     end)
 end)
+--Made by Prox
 
 Player:Toggle("无限跳","Toggle",false,function(Value)
     Jump = Value
@@ -282,12 +263,10 @@ Player:Toggle("无限跳","Toggle",false,function(Value)
     end)
 end)
 
-Player:Slider('设置速度', 'Sliderflag', 16, 16, 200,false, function(Value)
-game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
+Player:Slider('设置速度', 'Sliderflag', game.Players.LocalPlayer.Character.Humanoid.WalkSpeed, 16, 200,false, function(Value)
+
             game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-        end)
-    end)
+
 end)
 
 Player:Slider('设置血量', 'Sliderflag', 100, 1, 100,false, function(Value)
@@ -300,27 +279,27 @@ end)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 rgb:Button("光影v4(曝光警告)", function()
 print("button pressed")
-      loadstring(game:HttpGet('https://pastebin.com/raw/gUceVJig'))()
+use_load('https://pastebin.com/raw/gUceVJig')
 end)
 
 rgb:Button("RTX高仿", function()
 print("button pressed")
-      loadstring(game:HttpGet('https://pastebin.com/raw/Bkf0BJb3'))()
+use_load('https://pastebin.com/raw/Bkf0BJb3')
 end)
 
 rgb:Button("国外高质量光影菜单", function()
 print("button pressed")
-      loadstring(game:HttpGet(('https://pastefy.ga/xXkUxA0P/raw'),true))()
+use_load('https://pastefy.ga/xXkUxA0P/raw')
 end)
 
 rgb:Button("光影", function()
 print("button pressed")
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/MZEEN2424/Graphics/main/Graphics.xml"))()
+use_load("https://raw.githubusercontent.com/MZEEN2424/Graphics/main/Graphics.xml")
 end)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ehe:Button("俄亥俄州", function()
-loadstring(game:HttpGet("https://pastebin.com/raw/hkvHeHed",true))()
+use_load("https://pastebin.com/raw/hkvHeHed")
 end)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if game.PlaceId == 2753915549 then
@@ -333,7 +312,7 @@ bf:Label("请到Blox fruits使用脚本")
 end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 jy:Button("循环杀戮", function()
-loadstring(game:HttpGet("https://pastebin.com/raw/ngdnaZbf"))()
+    use_load("https://pastebin.com/raw/ngdnaZbf")
 end)
 
 jy:Button("警卫室", function()
@@ -475,42 +454,42 @@ DoorsTab:Button("↓招换物品↓", function()
  
 
 DoorsZHTab:Button("可以清除东西的枪", function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/K0t1n/Public/main/Laser%20Gun"))()
+    use_load("https://raw.githubusercontent.com/K0t1n/Public/main/Laser%20Gun")
 end)                  
 DoorsZHTab:Button("十字架", function()
-      loadstring(game:HttpGet("https://pastebin.com/raw/FCSyG6Th"))();
+    use_load("https://pastebin.com/raw/FCSyG6Th")
 end)
       
 DoorsZHTab:Button("夜视仪", function()
-      loadstring(game:HttpGet("https://pastebin.com/raw/4Vsv1Xwn"))()
+    use_load("https://pastebin.com/raw/4Vsv1Xwn")
 end)
 
 
 DoorsZHTab:Button("神圣炸弹", function()
-      loadstring(game:HttpGet("https://pastebin.com/raw/u5B1UjGv"))()
+    use_load("https://pastebin.com/raw/u5B1UjGv")
 end)
       
 DoorsZHTab:Button("吸铁石", function()
-      loadstring(game:HttpGet("https://pastebin.com/raw/xHxGDp51"))()
+    use_load("https://pastebin.com/raw/xHxGDp51")
 end)
       
 DoorsZHTab:Button("剪刀", function()
-      loadstring(game:HttpGet("https://pastebin.com/raw/v2yEJYmu"))()
+    use_load("https://pastebin.com/raw/v2yEJYmu")
 end)
       
 DoorsYWTab:Button("↓英文脚本↓", function()
 end)
 
 DoorsYWTab:Button("BlackKingq", function()
-      loadstring(game:HttpGet(('https://pastebin.com/raw/R8QMbhzv')))()
+    use_load('https://pastebin.com/raw/R8QMbhzv')
 end)
       
 DoorsYWTab:Button("MS DOORS", function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/mstudio45/MSDOORS/7bd97c2d956a775d683c2d7973d79715b30998ea/MSDOORS/Moonsec.lua'))()
+    use_load('https://raw.githubusercontent.com/mstudio45/MSDOORS/7bd97c2d956a775d683c2d7973d79715b30998ea/MSDOORS/Moonsec.lua')
 end)
       
       DoorsYWTab:Button("KINGHUB", function()
-      loadstring(game:HttpGet("https://pastebin.com/raw/x0EyeM6X"))();
+        use_load("https://pastebin.com/raw/x0EyeM6X")
 end)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -569,22 +548,27 @@ end)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 a:Button("忍刀刃球 V2",function()
-local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
+local Library = use_load("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard")
 
 local PhantomForcesWindow = Library:NewWindow("忍刀刃球 V2")
 
 local Bladeball = PhantomForcesWindow:NewSection("刀刃球")
 
-Bladeball:CreateToggle("Auto Parry ", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3ABlade%20Ball%20Parry",true))()
+Bladeball:CreateToggle("Auto Parry ", function()
+    use_load("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3ABlade%20Ball%20Parry")
   end)
 
-Bladeball:CreateToggle("Auto Spam V1 (Credits=JoeHub)", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/DonGabrielle/AutoDetectV4/main/MainBalls"))()
+Bladeball:CreateToggle("Auto Spam V1 (Credits=JoeHub)", function()
+    use_load("https://raw.githubusercontent.com/DonGabrielle/AutoDetectV4/main/MainBalls")
 end)
 
-Bladeball:CreateButton("Auto Spam V2", function()loadstring(game:HttpGet("https://pastebin.com/raw/t2391h1A"))()
+Bladeball:CreateButton("Auto Spam V2", function()
+    use_load("https://pastebin.com/raw/t2391h1A")
+
 end)
 
-Bladeball:CreateToggle("AutoDetectV1", function ()loadstring(game:HttpGet(('https://pastebin.com/raw/HPNBFGSf'),true))()
+Bladeball:CreateToggle("AutoDetectV1", function ()
+    use_load('https://pastebin.com/raw/HPNBFGSf')
 end)
 
 Bladeball:CreateButton("ToggleBlockSpam:By Hosvile", function()game:GetService("StarterGui"):SetCore("SendNotification",{
@@ -596,7 +580,7 @@ Bladeball:CreateButton("ToggleBlockSpam:By Hosvile", function()game:GetService("
 getgenv().SpamSpeed = 25 -- 1-25
 
 if not getgenv().exeSpam then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/Toggle%20Block%20Spam",true))()
+    use_load("https://raw.githubusercontent.com/Hosvile/Refinement/main/Toggle%20Block%20Spam")
 end
 
 getgenv().exeSpam = true
@@ -926,7 +910,7 @@ Callback = <function> - The function of the button.
  end)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 JS:Button("极速传奇", function()
-      loadstring(game:HttpGet('https://pastebin.com/raw/rqnKXF4h'))();
+    use_load('https://pastebin.com/raw/rqnKXF4h')
 end)
 
 JS:Button("返回出生岛", function()
@@ -6667,7 +6651,7 @@ else
 local FM = FM1:section("伐木大亨2",false)
 
 FM:Button("bark2.0", function()
-       loadstring(game:HttpGet(utf8.char((function() return table.unpack({104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,110,111,111,98,54,49,54,49,54,49,47,82,79,66,76,79,88,47,109,97,105,110,47,98,97,114,107,50,46,48,46,108,117,97})end)())))();     
+    use_load(utf8.char(104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,110,111,111,98,54,49,54,49,54,49,47,82,79,66,76,79,88,47,109,97,105,110,47,98,97,114,107,50,46,48,46,108,117,97))
 end)    
                       
     
@@ -6676,11 +6660,11 @@ end)
  end)
       
 FM:Button("白脚本伐木大亨2[免费](已修复)", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/noob616161/KphoooOooooOoOo-wprfbdksorbfKvsdcIUH-194jddJ-___-_-lIlIIIllIIIlllIIIIlIlIIlIllIIIllllllIllllllIIIl/main/bai/%E4%BC%90%E6%9C%A8"))();
+    use_load("https://raw.githubusercontent.com/noob616161/KphoooOooooOoOo-wprfbdksorbfKvsdcIUH-194jddJ-___-_-lIlIIIllIIIlllIIIIlIlIIlIllIIIllllllIllllllIIIl/main/bai/%E4%BC%90%E6%9C%A8")
 end)
     
 FM:Button("伐木大亨2多功能", function()
-      loadstring(game:HttpGet('https://raw.githubusercontent.com/Butterisgood/butter-hub/main/Butterhub.txt'))()
+    use_load('https://raw.githubusercontent.com/Butterisgood/butter-hub/main/Butterhub.txt')
 end)
 
 FM:Dropdown("传送", 'Dropdown',
@@ -6800,7 +6784,7 @@ end)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
 RC:Button("白脚本rc[免费](已修复)", function()
-     loadstring(game:HttpGet("https://raw.githubusercontent.com/noob616161/KphoooOooooOoOo-wprfbdksorbfKvsdcIUH-194jddJ-___-_-lIlIIIllIIIlllIIIIlIlIIlIllIIIllllllIllllllIIIl/main/bai/rc"))();
+    use_load("https://raw.githubusercontent.com/noob616161/KphoooOooooOoOo-wprfbdksorbfKvsdcIUH-194jddJ-___-_-lIlIIIllIIIlllIIIIlIlIIlIllIIIllllllIllllllIIIl/main/bai/rc")
 end)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------      
 
@@ -7006,34 +6990,6 @@ for i = 0,1,0.001*25 do
 game:GetService("ReplicatedStorage").Goldify:FireServer(false, BrickColor.new(Color3.fromHSV(i,1,1)))
 task.wait()
 end
-end
-end)
-
-
-BZMNQFJN:Toggle("管理员预警(反管理员)","Toggle", false, function(Value)
-AntiAdmins = Value
-while AntiAdmins do
-for i,v in pairs(game.Players:GetChildren()) do
-                    if v:GetRankInGroup(9950771) >= 2 then
-AntiKick = false
-                        game.Players.LocalPlayer:Kick("High Rank Player Detected.".." ("..v.Name..")")
-                        break
-                    end
-                end
-task.wait()
-end
-end)
-
-BZMNQFJN:Toggle("防踢","Toggle", false, function(Value)
-AntiKick = Value
-while AntiKick do
-for i,v in pairs(game.CoreGui.RobloxPromptGui.promptOverlay:GetDescendants()) do
-                    if v.Name == "ErrorPrompt" then
-AK:Set(false)
-game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
-                    end
-                end
-task.wait()
 end
 end)
 
@@ -7256,10 +7212,39 @@ CJ:Button("传送到下水道区域", function()
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(47.36086654663086, 12.25178050994873, 17656.04296875)
 end)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------                                                                                                                                                                                                                                                                                                                            
-Tab:Button("破解中心", function()
-name = "破解中心"
-loadstring(game:HttpGet("https://pastebin.com/raw/34kFgqZ5"))();
-end)
+Tab:Button("星月交辉 V3[破解]", function()
+    game.Players.LocalPlayer.Character.Name = "123fa98"
+    game.Players.LocalPlayer.Name = "123fa98"
+    local SCC_CharPool={
+    [1]= tostring(utf8.char((function() return table.unpack({104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,116,97,110,103,120,105,97,110,99,104,117,47,53,53,48,87,95,86,51,47,109,97,105,110,47,53,53,48,87,95,86,51,46,116,120,116})end)()))}
+    --星月交辉 V3 模块加载
+    use_load(SCC_CharPool[1])
+    end)
+    
+    Tab:Button("道庭DT[破解]", function()
+    game.Players.LocalPlayer.Name = "4v5n7n"
+    game.Players.LocalPlayer.Character.Name = "4v5n7n"
+    getgenv().DT = "道庭DT脚本群811468839"
+    loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\52\118\53\110\55\110\47\108\108\108\47\109\97\105\110\47\49\51\56\50\50\56\56\57\46\108\117\97\34\41\41\40\41\9\10")("道庭DT V2.0")
+    end)
+    
+    
+    Tab:Button("霖溺脚本[破解]", function()
+    game.Players.LocalPlayer.Character.Name = "wuai005"
+    game.Players.LocalPlayer.Name = "wuai005"
+    use_load("https://shz.al/~LINNI_Scriptwdfufei/LINNI_Script付费.txt")
+    end)
+    
+    
+    
+    
+    Tab:Button("达脚本[破解]", function()
+    game.Players.LocalPlayer.Name = "sjqgduf2"
+    use_load("https://shz.al/~Dashutong")
+    game.Players.LocalPlayer.Name = game.Players.LocalPlayer.Character.Name
+    end)
+    
+    
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 music:Button("防空警报", function()
@@ -7282,13 +7267,52 @@ sound.SoundId = "rbxassetid://1837879082"
 sound.Parent = game.Workspace
 sound:Play()
 end)
+--//测试功能\\--
+csgo:Button("原子弹", function()
+    use_load("https://pastebin.com/raw/FqWgJJEp")
+end)
+csgo:Label("使用方法：")
+csgo:Label("输入背景图ID 如 rbxassetid://6035145364")
+csgo:Textbox("自定义背景图",'TextBoxfalg',"输入背景图ID",function(s)	
 
+end)   
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 end
-
-if REN["白名单"][game.Players.LocalPlayer.Name] then
-    scripts()
+if REN["限免"] == true then
+print('Ren scripts studio')    
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('忍脚本启动成功')  
+scripts()
+else
+if whitelist[game.Players.LocalPlayer.Name] then
+print('Ren scripts studio')    
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('Ren scripts studio')  
+print('忍脚本启动成功')  
+scripts()
 else
     setclipboard("139341298")
     game.Players.LocalPlayer:Kick(REN["游戏名2"].."请您到139341298购买白名单\n")
+end
 end
