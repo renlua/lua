@@ -1,6 +1,6 @@
 if R == "忍脚本交流群:139341298" then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/renlua/lua/main/renscript.lua"))();
-elseif R == "清风脚本" then
+elseif R == "忍脚本【免费版】" then
 loadstring(game:HttpGet("https://shz.al/wQcr"))();
 else
 local CoreGui = game:GetService("StarterGui")
