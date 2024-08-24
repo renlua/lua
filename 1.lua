@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("https://不是老弟抓包呢/6"))();
+print("011522444444444444444444444444aw5f")
