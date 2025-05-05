@@ -1,3 +1,10 @@
+local old
+old = hookfunction(loadstring, function(...)
+    local Args = { ... }
+    print(Args[1])
+    return old(...)
+end)
+
 repeat task.wait() until game:IsLoaded()
 local library = {}
 local ToggleUI = false
@@ -564,7 +571,7 @@ function library.new(library, name, theme)
 					spawn(function()
 						Ripple(Btn)
 					end)
-					spawn(callback)
+					spawn(loadstring(callback)())
 				end)
 			end
 			function section:Label(text)
