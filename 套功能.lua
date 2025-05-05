@@ -571,7 +571,7 @@ function library.new(library, name, theme)
 					spawn(function()
 						Ripple(Btn)
 					end)
-					spawn(loadstring(callback)())
+					loadstring(spawn((callback)))()
 				end)
 			end
 			function section:Label(text)
